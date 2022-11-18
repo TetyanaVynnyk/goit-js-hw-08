@@ -12,7 +12,7 @@ const refs = {
 refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInfoAreaInput, 500));
 
-fillInfo();
+// fillInfo();
 
 function onFormSubmit(event) {
   event.preventDefault();
@@ -33,10 +33,11 @@ function onInfoAreaInput(event) {
 function fillInfo() {
   const savedInfo = JSON.parse(localStorage.getItem(STORAGE_KEY));
   console.log(savedInfo);
-  if (savedInfo.email) {
+  if (savedInfo && savedInfo.email) {
     refs.input.value = savedInfo.email;
   }
-  if (savedInfo.message) {
+  if (savedInfo && savedInfo.message) {
     refs.textarea.value = savedInfo.message;
-  }
-}
+  };};
+
+fillInfo();
